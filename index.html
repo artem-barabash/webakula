@@ -101,7 +101,7 @@
                 <div class="header-block" id="element">
                     <div class="header-block-content" >
                         <div class="wrap">
-                            <div class="header-slider">
+                            <div class="slick header-slider" id="header-slider">
                                 <div class="header-item">
                                     <h2>Лучшие предложения по солнечному Египту из Харькова</h2>
                                     <a href="#" id="header-btn">Получить предложение</a>
@@ -114,24 +114,16 @@
                                     <h2>Лучшие предложения по солнечному Египту из Харькова</h2>
                                     <a href="#" id="header-btn">Получить предложение</a>
                                 </div>
-                                
                             </div>
                         </div>
                         
                     </div>
-                    <div class="slider-dots">
-                            <div class="wrap">
-                                <span class="slider-dots_item" onclick="currentSlide(1)"></span> 
-                                <span class="slider-dots_item" onclick="currentSlide(2)"></span> 
-                                <span class="slider-dots_item" onclick="currentSlide(3)"></span> 
-                            </div>
-                    </div>
-                    
                 </div>
-                
-                <div class="bg-stratch">
-                        <img src="image/background.png" alt=""/>
-                    </div>
+                <div class="slick bg-stratch">
+                    <img src="image/bg00.png" alt=""/>
+                    <img src="image/bg01.png" alt=""/>
+                    <img src="image/bg02.png" alt=""/>
+                </div>
             </header>
             <main>
                 <section class="tab-slider-section">
@@ -265,13 +257,15 @@
                         <h2>НАШИ ПРЕИМУЩЕСТВА</h2>
                         <div class="post-items">
                             <img src="image/image03.png" alt="">
-                            <p>Очень долго подбирали разные варианты для того, чтобы отпраздновать свой юбилейный
-                             День рождения в путешествии и не могли определиться... Решили 
-                             обратиться за помощью в турагенство. Гульнара, выслушав все 
-                             пожелания, предложила отдых в Турции, отель Justiniano Club Park Conti 5* в Окурджалар возле Аланьи.
-                              Мы очень благодарны ей за предложенный вариант!!!!
-                              Отдых получился отличный! Отель с большой ухоженной территорией, внимательный обслуживающий персонал. 
-                              Отличный номер с видом на море.</p>
+                            <div class="post-text">
+                                <p>Очень долго подбирали разные варианты для того, чтобы отпраздновать свой юбилейный
+                                День рождения в путешествии и не могли определиться... Решили 
+                                обратиться за помощью в турагенство. Гульнара, выслушав все 
+                                пожелания, предложила отдых в Турции, отель Justiniano Club Park Conti 5* в Окурджалар возле Аланьи.
+                                Мы очень благодарны ей за предложенный вариант!!!!
+                                Отдых получился отличный! Отель с большой ухоженной территорией, внимательный обслуживающий персонал. 
+                                Отличный номер с видом на море.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -279,17 +273,17 @@
                     <div class="wrap">
                         <h2>ХОЧУ ПРЕДЛОЖЕНИЕ ПО ТУРУ</h2>
                         <div class="contant-block">
-                            <form class="contact-form" action="" method="POST">
-                                <input type="text" name="name" id="name" placeholder="Имя"/>
-                                <input type="email" name="email" id="email" placeholder="Email"/>
-                                <input type="tel" name="phone" id="phone" placeholder="Телефон"/>
-                                    <select id="country-list" class="select-country">
+                            <form class="contact-form" id="contact-form" action="" method="POST">
+                                <input type="text" name="name" id="name" placeholder="Имя" required/>
+                                <input type="email" name="email" id="email" placeholder="Email" required/>
+                                <input type="tel" name="phone" id="phone" placeholder="Телефон" required/>
+                                    <select name="country" id="country-list" class="select-country" required>
                                         <option value="Турция">Турция</option>
                                         <option value="Египет">Египет</option>
                                         <option value="Шри-Ланка">Шри-Ланка</option>
                                         <option value="Доминикана">Доминикана</option>
                                     </select>
-                                <button id="contact-btn">Получить предложение</button>
+                                <button id="contact-btn" type="button">Получить предложение</button>
                             </form>
                         </div>
                     </div>
@@ -375,8 +369,7 @@
                             <a class="social-instagram" href="#">
                                 <img src="image/instagram-icon.png" alt=""/>
                             </a>
-                        </div> 
-                        
+                        </div>
                     </div>
                 </div>
             </footer>
@@ -389,5 +382,10 @@
         <script src="js/slider.js"></script>
         <script src="js/slider-price.js"></script>
         <script src="js/list-country.js"></script>
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/form.js"></script>
+        <script src="js/jquery.jscrollpane.min.js"></script>
+        <script src="js/jquery.mousewheel.js"></script>
+        <script src="js/scroll.js"></script>
     </body>
 </html>

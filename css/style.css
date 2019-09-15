@@ -64,7 +64,8 @@ body{
 .bg-stratch img{
 	object-fit: cover;
 	width: 100%;
-	height: 100%;
+    height: 100vh;
+    padding: 0;
 }
 
 #header .header-section{
@@ -258,53 +259,45 @@ body{
     border-radius: 10px;
 }
 
-.slider-dots {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    padding-bottom: 26px;
+
+.header-slider ul.dotsSlider{
+    display: none !important;
 }
-.slider-dots_item{
-    cursor: pointer;
-    height: 12px;
-    width: 12px;
-    margin: 0 2px;
-    background-color: #ddd;
-    border-radius: 50%;
+
+.bg-stratch ul.dotsSlider{
+    padding: 0 20px;
+    margin: 0px auto;
+    max-width: 1170px;
+    margin-top: -50px;
+    position: relative;
+    z-index: 100;
+}
+
+.bg-stratch ul.dotsSlider li{
     display: inline-block;
-    transition: background-color 0.6s ease;
 }
 
-.header-slider .header-item {
-    -webkit-animation-name: fade;
-    -webkit-animation-duration: 1.5s;
-    animation-name: fade;
-    animation-duration: 1.5s;
+.bg-stratch ul.dotsSlider li:not(:first-child){
+    margin-left: 14px;
 }
 
-@-webkit-keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
+.bg-stratch ul.dotsSlider li button{
+   font-size: 0;
+   line-height: 0;
+   border: 0;
+   width: 10px;
+   height: 10px;
+   border-radius: 50%;
+   outline: 0;
+   background: #cbeef2;
 }
-@keyframes fade {
-    from {
-        opacity: .4
-    }
-    to {
-        opacity: 1
-    }
+
+.bg-stratch ul.dotsSlider .slick-active button{
+    background: #fbd341;
 }
 
 .tab-slider-section{
-    margin-bottom: 75px;
-}
-
-.slider-dots_item.active{
-    background:#fbd341;
+    margin-bottom: 74px;
 }
 
 .offer-slider{
@@ -429,17 +422,66 @@ body{
     display: flex;
     align-items: center;
 }
-
-.post-items p{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 0.87em;
-    margin-left: 91px;
-}
-
 .post-items img{
     height: 316px;
     width: 39.14%;
 }
+
+.post-items .post-text{
+    height: 120px;
+    /*overflow: scroll !important;*/
+}
+
+.post-text .jspScrollable{
+    width: 60.86%;
+}
+
+.post-text .jspContainer{
+    width: 100% !important;
+    position: relative;
+}
+
+.post-text .jspPane{
+    width: 100% !important;
+    margin-left: 0px !important;
+    position: absolute;
+}
+
+.post-text .jspVerticalBar{
+    position: absolute;
+    top: 0;
+    right: 10px;
+    width: 1px;
+    height: 100%;
+    background: #e1e0e0;
+}
+
+.post-text .jspCap{
+    display: none;
+}
+    
+.post-text .jspHorizontalBar .jspCap{
+    float: left;
+}
+    
+.post-text .jspContainer .jspVerticalBar .jspDrag{
+    background: #fbd341;
+    position: absolute;
+    top: 0;
+    left: -300%;
+    cursor: pointer;
+    height: 8px !important;
+    width: 8px;
+    border-radius: 50%;
+}
+
+.post-items .post-text p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.95em;
+    margin-left: 70px;
+    width: 80%;
+}
+
 
 .contact-us{
     background: url('../image/background01.png') no-repeat;
@@ -466,6 +508,13 @@ body{
     position: relative;
 }
 
+
+.contact-form .error{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.78em;
+    text-align: center;
+}
 .contact-form #name,#email,#phone{
     background-color: transparent;
     color: #fff;
@@ -802,7 +851,7 @@ ul {
     }
 
     .select-country{
-        width: 50%;
+        width: 40%;
     }
     .select__gap{
         margin: 0 0 30px 0;
@@ -844,10 +893,6 @@ ul {
 }
 
 @media screen and (max-width: 768px){
-    #nav{
-        width: 90%;
-        margin-left: auto;
-    }
     .header-slider .header-item h2{
         font-size: 1em;
     }
@@ -896,32 +941,45 @@ ul {
     }
 
     #footer .wrap{
-        flex-direction: column;
-        align-items: center;
+        display: block;
     }
     .footer-block{
         width: 100%;
         margin-bottom: 30px;
     }
+
     #footer .navigation-block{
         margin-left: 0px;
-        width: 100%;
+        width: 50%;
         margin-bottom: 30px;
+        float: left;
     }
 
     #footer .help-block{
         margin-left: 0px;
-        width: 100%;
+        width: 50%;
         margin-bottom: 30px;
+        float: right;
     }
 
     #footer .footer-contact-block{
-        margin-left: 0px;
+        margin: 0px;
+        padding: 0px;
         width: 100%;
+        float: left;
     }
 }
 
 @media screen and (max-width: 480px){
+    #header .header-logo{
+        padding-right: 20px;
+    }
+    .contact-section .phone{
+        padding-right: 0px;
+    }
+    #nav{
+        width: 100%;
+    }
     .header-block-content{
         background: linear-gradient(to right,rgba(17, 125, 174, 0.7) 90%, transparent 10%);
     }
@@ -942,9 +1000,20 @@ ul {
     .contact-us{
         background-size: cover;
     }
+
+    .select__gap{
+        width: 70%;
+    }
+
+    .post-text .jspContainer{
+        width: 85% !important;
+    }
 }
 
 @media screen and (max-width: 375px){
+    .header-slider .header-item h2{
+        font-size: 0.95em;
+    }
     .header-section .contact-section{
         flex-direction: column;
     }
@@ -955,15 +1024,43 @@ ul {
         padding-right: 0px;
         margin-bottom: 15px;
     }
+
+    .contact-section .adress span{
+        font-size: 1em;
+    }
+
+    .contact-section .phone a{
+        font-size: 1em;
+    }
+
     .social-block{
         display: flex;
         justify-content: center;
         margin-left: 0px;
     }
-
     .post-items img{
         width: 100%;
     }
+
+    footer .wrap{
+        display: flex;
+        flex-direction: column
+    }
+
+    #footer .navigation-block{
+        width: 100%;
+        float: none;
+    }
+
+    #footer .help-block{
+        width: 100%;
+        float: none;
+    }
+
+    #footer .footer-contact-block{
+        float: none;
+    }
+    
 }
 
 @media screen and (max-width: 320px){
